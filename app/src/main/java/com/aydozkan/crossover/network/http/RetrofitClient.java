@@ -11,14 +11,14 @@ import retrofit2.converter.gson.GsonConverterFactory;
 /**
  * Singleton Client implementation for Square's Retrofit.
  */
-public class RetrofitClient {
+public final class RetrofitClient {
 
     //Timeout values in TimeUnit.SECONDS
     private static final long DEFAULT_CONNECT_TIMEOUT = 20;
     private static final long DEFAULT_READ_TIMEOUT = 20;
     private static final long DEFAULT_WRITE_TIMEOUT = 20;
 
-    private static final RetrofitClient ourInstance = new RetrofitClient();
+    private static final RetrofitClient OUR_INSTANCE = new RetrofitClient();
     private final Retrofit mRetrofit;
 
     /**
@@ -45,7 +45,7 @@ public class RetrofitClient {
      * @return Our RetrofitClient instance
      */
     public static RetrofitClient getInstance() {
-        return ourInstance;
+        return OUR_INSTANCE;
     }
 
     /**

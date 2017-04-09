@@ -32,7 +32,7 @@ import java.util.List;
  * Implements OnMapReadyCallBack: Indicates that GoogleMap is ready.
  * Implements PlacesView: PlacesService CallBack Interface
  */
-public class PlacesActivity extends BaseActivity implements OnMapReadyCallback, PlacesView, PaymentFragmentDialog.OnRentPaymentListener {
+public class PlacesActivity extends BaseActivity implements OnMapReadyCallback, PlacesView, PaymentFragmentDialog.RentPaymentListener {
 
     private static final int CAMERA_BOUNDS_PADDING = 100;
 
@@ -85,8 +85,9 @@ public class PlacesActivity extends BaseActivity implements OnMapReadyCallback, 
         });
 
         //GetPlaces Service Call
-        if (mPlacesPresenter != null)
+        if (mPlacesPresenter != null) {
             mPlacesPresenter.getPlaces();
+        }
     }
 
     /**
@@ -109,7 +110,8 @@ public class PlacesActivity extends BaseActivity implements OnMapReadyCallback, 
         for (Place place : placeList) {
             latLng = new LatLng(place.getLocation().getLatitude(), place.getLocation().getLongitude());
 
-            mGoogleMap.addMarker(new MarkerOptions().position(latLng).title(place.getName()).icon(bitmapDescriptor).snippet(getString(R.string.action_rent_bike)));
+            mGoogleMap.addMarker(
+                    new MarkerOptions().position(latLng).title(place.getName()).icon(bitmapDescriptor).snippet(getString(R.string.action_rent_bike)));
 
             builder.include(latLng);
         }
@@ -146,7 +148,8 @@ public class PlacesActivity extends BaseActivity implements OnMapReadyCallback, 
      */
     @Override
     public void onRentPaymentButtonClicked(String cardNumber, String cardOwnerName, String expirationDate, String securityCode) {
-        if (mPlacesPresenter != null)
+        if (mPlacesPresenter != null) {
             mPlacesPresenter.rentPayment(cardNumber, cardOwnerName, expirationDate, securityCode);
+        }
     }
 }

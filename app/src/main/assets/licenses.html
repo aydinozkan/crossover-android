@@ -1,92 +1,89 @@
 <html>
+
 <head>
     <meta name="viewport" content="width=device-width, user-scalable=no"/>
     <style>
         #lizenzen {
-        word-wrap: break-word;
-        overflow-x: hidden;
-        width:100%;
+            word-wrap: break-word;
+            overflow-x: hidden;
+            width: 100%;
         }
-
         @font-face {
-        font-family: 'ing_meregular';
-        src: url('INGMe-Regular.ttf') format('truetype');
-        font-weight: normal;
-        font-style: normal;
+            font-family: 'ing_meregular';
+            src: url('INGMe-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
         }
-
-        p, li, a {
-        line-height: 1.5em;
-        font-size: 1.0rem;
-        font-family: 'ing_meregular';
-        color: #434343;
+        p,
+        li,
+        a {
+            line-height: 1.5em;
+            font-size: 1.0rem;
+            font-family: 'ing_meregular';
+            color: #434343;
         }
-
-        .faq_frage a{
-        text-decoration: none;
-        display: block;
+        .faq_frage a {
+            text-decoration: none;
+            display: block;
         }
-
-        .faq_antwort a{
-        display: inline;
+        .faq_antwort a {
+            display: inline;
         }
-
-        p{
-        font-size: 1.0rem;
-        margin-bottom: 1em;
+        p {
+            font-size: 1.0rem;
+            margin-bottom: 1em;
         }
-
-        li, ul {
-        list-style-type:none
-        }
-
+        li,
         ul {
-        margin: 0;
-        padding: 0;
+            list-style-type: none
         }
-
+        ul {
+            margin: 0;
+            padding: 0;
+        }
         li {
-        margin-left: 0.7rem;
-        margin-right: 0.7rem;
-        padding-bottom: 1.0rem;
-        padding-top: 1.0rem;
-        border-bottom: 1px solid #EEEEEE;
+            margin-left: 0.7rem;
+            margin-right: 0.7rem;
+            padding-bottom: 1.0rem;
+            padding-top: 1.0rem;
+            border-bottom: 1px solid #EEEEEE;
         }
-
         li:last-child {
-        border:none;
+            border: none;
         }
-
         li ul li {
-        margin-left: 0.0rem;
-        padding-left: 1.5rem;
-        padding-bottom: 0.0rem;
-        padding-top: 0.0rem;
-        border-bottom: 0px;
+            margin-left: 0.0rem;
+            padding-left: 1.5rem;
+            padding-bottom: 0.0rem;
+            padding-top: 0.0rem;
+            border-bottom: 0px;
         }
-
-        .punkt4 li { padding-left: 40px; text-indent: -1.1rem; }
-        .punkt4 li > * { text-indent: 0; }
-        .punkt4_last li { padding-left: 40px;}
+        .punkt4 li {
+            padding-left: 40px;
+            text-indent: -1.1rem;
+        }
+        .punkt4 li > * {
+            text-indent: 0;
+        }
+        .punkt4_last li {
+            padding-left: 40px;
+        }
 
     </style>
 
     <script>
-		function lizenzEinblenden(id){
-			if(document.getElementById(id).style.display == 'none')
-		 		document.getElementById(id).style.display = 'block';
-		 	else
-		 		document.getElementById(id).style.display = 'none';
-		}
-		
-		function apacheLizenzOeffnen(){
-			document.getElementById(9).style.display = 'block';
-			location.href="#ApacheLizenz";
-			history.replaceState(null,null,url); 
-		}
+        function lizenzEinblenden(id) {
+            if (document.getElementById(id).style.display == 'none')
+                document.getElementById(id).style.display = 'block';
+            else
+                document.getElementById(id).style.display = 'none';
+        }
 
-
-
+        function apacheLizenzOeffnen() {
+            document.getElementById(9).style.display = 'block';
+            location.href = "#ApacheLizenz";
+            history.replaceState(null, null, url);
+        }
 
     </script>
 </head>
@@ -126,28 +123,21 @@
         <li class="faq_frage"><a href="javascript:lizenzEinblenden(4)">Card-Form</a>
             <ul class="text" id="4" style="display:none">
                 <li>
-                    Copyright (c) 2009-2014 Braintree, a division of PayPal, Inc.
-
-                    Permission is hereby granted, free of charge, to any person
-                    obtaining a copy of this software and associated documentation
-                    files (the "Software"), to deal in the Software without
-                    restriction, including without limitation the rights to use,
-                    copy, modify, merge, publish, distribute, sublicense, and/or sell
-                    copies of the Software, and to permit persons to whom the
-                    Software is furnished to do so, subject to the following
-                    conditions:
-
-                    The above copyright notice and this permission notice shall be
-                    included in all copies or substantial portions of the Software.
-
-                    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-                    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-                    OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-                    NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-                    HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-                    WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-                    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-                    OTHER DEALINGS IN THE SOFTWARE.
+                    Copyright (c) 2009-2014 Braintree, a division of PayPal, Inc. Permission is
+                    hereby granted, free of charge, to any person obtaining a copy of this software
+                    and associated documentation files (the "Software"), to deal in the Software
+                    without restriction, including without limitation the rights to use, copy,
+                    modify, merge, publish, distribute, sublicense, and/or sell copies of the
+                    Software, and to permit persons to whom the Software is furnished to do so,
+                    subject to the following conditions: The above copyright notice and this
+                    permission notice shall be included in all copies or substantial portions of the
+                    Software. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+                    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+                    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO
+                    EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+                    OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+                    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+                    THE SOFTWARE.
                 </li>
             </ul>
         </li>
@@ -160,7 +150,8 @@
                 </li>
             </ul>
         </li>
-        <li class="faq_frage" id="ApacheLizenz"><a href="javascript:lizenzEinblenden(6)">Apache 2.0 License</a>
+        <li class="faq_frage" id="ApacheLizenz"><a href="javascript:lizenzEinblenden(6)">Apache 2.0
+            License</a>
             <ul class="text" id="6" style="display:none">
                 <li>
                     <p class="faq_antwort">
@@ -201,7 +192,8 @@
                     <p>"Work" shall mean the work of authorship, whether in Source or Object form,
                         made available under the License, as indicated by a copyright notice that is
                         included in or attached to the work (an example is provided in the Appendix
-                        below).</p>
+                        below).
+                    </p>
 
                     <p>"Derivative Works" shall mean any work, whether in Source or Object form,
                         that is based on (or derived from) the Work and for which the editorial
@@ -223,7 +215,8 @@
                         are managed by, or on behalf of, the Licensor for the purpose of discussing
                         and improving the Work, but excluding communication that is conspicuously
                         marked or otherwise designated in writing by the copyright owner as "Not a
-                        Contribution."</p>
+                        Contribution."
+                    </p>
 
                     <p>"Contributor" shall mean Licensor and any individual or Legal Entity on
                         behalf of whom a Contribution has been received by Licensor and subsequently
@@ -249,12 +242,13 @@
                         Contribution incorporated within the Work constitutes direct or contributory
                         patent infringement, then any patent licenses granted to You under this
                         License for that Work shall terminate as of the date such litigation is
-                        filed.</p>
+                        filed.
+                    </p>
 
                     <p>4. Redistribution. You may reproduce and distribute copies of the Work or
                         Derivative Works thereof in any medium, with or without modifications, and
-                        in Source or Object form, provided that You meet the following
-                        conditions:</p>
+                        in Source or Object form, provided that You meet the following conditions:
+                    </p>
 
                     <ul class="punkt4">
                         <li>a. You must give any other recipients of the Work or Derivative Works a
@@ -340,4 +334,5 @@
     </ul>
 </div>
 </body>
+
 </html>

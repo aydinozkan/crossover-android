@@ -20,12 +20,12 @@ import javax.crypto.NoSuchPaddingException;
  * Keeps a reference to the SharedPreference
  * Acts as a Singleton class
  */
-public class SharedPreferenceWrapper {
+public final class SharedPreferenceWrapper {
 
     private static final String TAG = SharedPreferenceWrapper.class.getName();
     private static final String SHARED_PREFERENCES_NAME = "crossOver";
     private static final String KEY_ACCESS_TOKEN = "accessToken";
-    private static final SharedPreferenceWrapper ourInstance = new SharedPreferenceWrapper();
+    private static final SharedPreferenceWrapper OUR_INSTANCE = new SharedPreferenceWrapper();
     private SharedPreferences mSharedPreferences;
 
     private SharedPreferenceWrapper() {
@@ -37,7 +37,7 @@ public class SharedPreferenceWrapper {
      * @return SharedPreferenceWrapper instance
      */
     public static SharedPreferenceWrapper getInstance() {
-        return ourInstance;
+        return OUR_INSTANCE;
     }
 
     /**
@@ -56,12 +56,20 @@ public class SharedPreferenceWrapper {
      * @return accessToken
      */
     public String getAccessToken() {
-        if (mSharedPreferences != null)
+        if (mSharedPreferences != null) {
             try {
                 return CrossOverApplication.getInstance().getCrypt().decrypt(mSharedPreferences.getString(KEY_ACCESS_TOKEN, ""));
-            } catch (UnsupportedEncodingException | NoSuchAlgorithmException | InvalidKeySpecException | InvalidAlgorithmParameterException | NoSuchPaddingException | BadPaddingException | InvalidKeyException | IllegalBlockSizeException e) {
+            } catch (UnsupportedEncodingException
+                    | NoSuchAlgorithmException
+                    | InvalidKeySpecException
+                    | InvalidAlgorithmParameterException
+                    | NoSuchPaddingException
+                    | BadPaddingException
+                    | InvalidKeyException
+                    | IllegalBlockSizeException e) {
                 Log.e(TAG, e.getMessage());
             }
+        }
 
         return "";
     }

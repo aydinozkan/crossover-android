@@ -8,27 +8,25 @@ import se.simbio.encryption.Encryption;
 
 public class CrossOverApplication extends Application {
 
-    private static final String key = "2Y5PTM925LCY6034T67320525YL291B0";
-    private static final String salt = "6k30rnc2t0m2rp";
+    private static final String KEY = "2Y5PTM925LCY6034T67320525YL291B0";
+    private static final String SALT = "6k30rnc2t0m2rp";
+    private static final Encryption ENCRYPTION = Encryption.getDefault(KEY, SALT, new byte[16]);
+    private static CrossOverApplication sInstance;
 
-    private static CrossOverApplication _instance;
-
-    private static final Encryption sEncryption = Encryption.getDefault(key, salt, new byte[16]);
-
-    public synchronized static CrossOverApplication getInstance() {
-        return _instance;
+    public static synchronized CrossOverApplication getInstance() {
+        return sInstance;
     }
 
     @Override
     public void onCreate() {
         super.onCreate();
 
-        _instance = this;
+        sInstance = this;
 
         SharedPreferenceWrapper.getInstance().initialize(this);
     }
 
-    public Encryption getCrypt(){
-        return sEncryption;
+    public Encryption getCrypt() {
+        return ENCRYPTION;
     }
 }

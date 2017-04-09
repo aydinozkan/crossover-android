@@ -3,10 +3,12 @@
   <component name="CheckStyle-IDEA">
     <option name="configuration">
       <map>
+        <entry key="active-configuration" value="LOCAL_FILE:$PRJ_DIR$/app/src/main/assets/checkstyle_config.xml:Custom Checkstyle Config" />
         <entry key="checkstyle-version" value="7.6" />
-        <entry key="location-0" value="CLASSPATH:/sun_checks.xml:The default Checkstyle rules" />
+        <entry key="location-0" value="LOCAL_FILE:$PRJ_DIR$/app/src/main/assets/checkstyle_config.xml:Custom Checkstyle Config" />
+        <entry key="location-1" value="CLASSPATH:/sun_checks.xml:The default Checkstyle rules" />
         <entry key="scan-before-checkin" value="false" />
-        <entry key="scanscope" value="JavaOnly" />
+        <entry key="scanscope" value="AllSources" />
         <entry key="suppress-errors" value="false" />
         <entry key="thirdparty-classpath" value="" />
       </map>

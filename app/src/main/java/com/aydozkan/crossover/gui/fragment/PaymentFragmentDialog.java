@@ -16,7 +16,7 @@ import com.braintreepayments.cardform.view.CardForm;
 
 /**
  * Activities that contain this fragment must implement the
- * {@link PaymentFragmentDialog.OnRentPaymentListener} interface
+ * {@link RentPaymentListener} interface
  * to handle interaction events.
  * Use the {@link PaymentFragmentDialog#newInstance} factory method to
  * create an instance of this fragment.
@@ -30,7 +30,7 @@ public class PaymentFragmentDialog extends DialogFragment {
 
     private String mPlaceName;
 
-    private OnRentPaymentListener mOnRentPaymentListener;
+    private RentPaymentListener mRentPaymentListener;
 
     /**
      * Use this factory method to create a new instance of
@@ -88,8 +88,9 @@ public class PaymentFragmentDialog extends DialogFragment {
         }
 
         //Set Place Name Text if exists
-        if (mTvPlaceName != null && mPlaceName != null && !mPlaceName.isEmpty())
+        if (mTvPlaceName != null && mPlaceName != null && !mPlaceName.isEmpty()) {
             mTvPlaceName.setText(mPlaceName);
+        }
 
         //Set Rent Payment Click Listener
         if (mBtnRent != null) {
@@ -99,8 +100,12 @@ public class PaymentFragmentDialog extends DialogFragment {
 
                     //Send onRentPaymentButtonClicked to activity if CardForm is valid
                     if (mCardForm != null && mCardForm.isValid()) {
-                        if (mOnRentPaymentListener != null && mCardForm.getExpirationYear() != null && mCardForm.getExpirationYear().length() >= 2) {
-                            mOnRentPaymentListener.onRentPaymentButtonClicked(mCardForm.getCardNumber(), mCardForm.getPostalCode(), mCardForm.getExpirationMonth() + "/" + mCardForm.getExpirationYear().substring(2), mCardForm.getCvv());
+                        if (mRentPaymentListener != null && mCardForm.getExpirationYear() != null && mCardForm.getExpirationYear().length() >= 2) {
+                            mRentPaymentListener.onRentPaymentButtonClicked(
+                                    mCardForm.getCardNumber(),
+                                    mCardForm.getPostalCode(),
+                                    mCardForm.getExpirationMonth() + "/" + mCardForm.getExpirationYear().substring(2),
+                                    mCardForm.getCvv());
                             dismiss();
                         }
                     } else {
@@ -115,8 +120,8 @@ public class PaymentFragmentDialog extends DialogFragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnRentPaymentListener) {
-            mOnRentPaymentListener = (OnRentPaymentListener) context;
+        if (context instanceof RentPaymentListener) {
+            mRentPaymentListener = (RentPaymentListener) context;
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnFragmentInteractionListener");
@@ -126,7 +131,7 @@ public class PaymentFragmentDialog extends DialogFragment {
     @Override
     public void onDetach() {
         super.onDetach();
-        mOnRentPaymentListener = null;
+        mRentPaymentListener = null;
     }
 
     /**
@@ -134,7 +139,7 @@ public class PaymentFragmentDialog extends DialogFragment {
      *
      * @see com.aydozkan.crossover.gui.activity.PlacesActivity
      */
-    public interface OnRentPaymentListener {
+    public interface RentPaymentListener {
         void onRentPaymentButtonClicked(String cardNumber, String cardOwnerName, String expirationDate, String securityCode);
     }
 }

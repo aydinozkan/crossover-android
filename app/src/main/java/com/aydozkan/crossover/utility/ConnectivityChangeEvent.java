@@ -8,9 +8,13 @@ import android.net.NetworkInfo;
  * @see NetworkChangeReceiver
  */
 public class ConnectivityChangeEvent {
-    public final NetworkInfo.State state;
+    private final NetworkInfo.State mState;
 
     public ConnectivityChangeEvent(NetworkInfo.State state) {
-        this.state = state;
+        this.mState = state;
+    }
+
+    public NetworkInfo.State getState() {
+        return mState;
     }
 }

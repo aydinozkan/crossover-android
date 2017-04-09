@@ -36,18 +36,17 @@ import javax.crypto.NoSuchPaddingException;
  */
 public class LoginActivity extends BaseActivity implements AuthenticationView {
 
+    private static final String TAG = LoginActivity.class.getName();
     private AuthenticationPresenter mAuthenticationPresenter;
     private AutoCompleteTextView mEtEmail;
     private EditText mEtPassword;
     private TextView mTvNotMember;
     private Button mBtnLogin;
-
     private AuthenticationType mAuthenticationType;
-
     private String mEmail, mPassword;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_login);
@@ -64,12 +63,14 @@ public class LoginActivity extends BaseActivity implements AuthenticationView {
         mEtPassword = (EditText) findViewById(R.id.etPassword);
 
         mTvNotMember = (TextView) findViewById(R.id.tvNotMember);
-        mTvNotMember.setPaintFlags(mTvNotMember.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        mTvNotMember.setPaintFlags(mTvNotMember.getPaintFlags()
+                | Paint.UNDERLINE_TEXT_FLAG);
         mTvNotMember.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(final View view) {
 
-                //Change AuthenticationType Message and mBtnLogin Text according to mAuthenticationType
+                /*Change AuthenticationType Message and mBtnLogin Text
+                according to mAuthenticationType*/
                 switch (mAuthenticationType) {
                     case LOGIN:
                         mAuthenticationType = AuthenticationType.REGISTER;
@@ -94,7 +95,7 @@ public class LoginActivity extends BaseActivity implements AuthenticationView {
         mBtnLogin = (Button) findViewById(R.id.btnLogin);
         mBtnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(final View view) {
                 if (isFormValid()) {
 
                     //Call appropriate authentication service according to mAuthenticationType
@@ -171,8 +172,9 @@ public class LoginActivity extends BaseActivity implements AuthenticationView {
      * Will try to authenticate an existing user
      */
     private void authenticateUser() {
-        if (mAuthenticationPresenter != null)
+        if (mAuthenticationPresenter != null) {
             mAuthenticationPresenter.authenticateUser(mEmail, mPassword);
+        }
     }
 
     /**
@@ -191,8 +193,9 @@ public class LoginActivity extends BaseActivity implements AuthenticationView {
      * Will try to register a new user
      */
     private void registerUser() {
-        if (mAuthenticationPresenter != null)
+        if (mAuthenticationPresenter != null) {
             mAuthenticationPresenter.registerUser(mEmail, mPassword);
+        }
     }
 
     /**
@@ -215,7 +218,14 @@ public class LoginActivity extends BaseActivity implements AuthenticationView {
     public void storeAccessToken(String accessToken) {
         try {
             SharedPreferenceWrapper.getInstance().setAccessToken(CrossOverApplication.getInstance().getCrypt().encrypt(accessToken));
-        } catch (UnsupportedEncodingException | NoSuchAlgorithmException | NoSuchPaddingException | InvalidAlgorithmParameterException | InvalidKeyException | InvalidKeySpecException | BadPaddingException | IllegalBlockSizeException e) {
+        } catch (UnsupportedEncodingException
+                | NoSuchAlgorithmException
+                | NoSuchPaddingException
+                | InvalidAlgorithmParameterException
+                | InvalidKeyException
+                | InvalidKeySpecException
+                | BadPaddingException
+                | IllegalBlockSizeException e) {
             Log.e(TAG, e.getMessage());
         }
     }

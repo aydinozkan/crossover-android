@@ -24,7 +24,6 @@ import org.greenrobot.eventbus.Subscribe;
  */
 public class BaseActivity extends AppCompatActivity implements BaseView {
 
-    final String TAG = getClass().getName();
     private ProgressDialog mProgressDialog;
 
     @Override
@@ -32,8 +31,9 @@ public class BaseActivity extends AppCompatActivity implements BaseView {
         super.onCreate(savedInstanceState);
 
         //Hide ActionBar
-        if (getSupportActionBar() != null)
+        if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
+        }
 
         EventBus.getDefault().register(this);
 
@@ -63,8 +63,9 @@ public class BaseActivity extends AppCompatActivity implements BaseView {
      */
     @Override
     public void onBeforeRequest() {
-        if (mProgressDialog != null && !mProgressDialog.isShowing())
+        if (mProgressDialog != null && !mProgressDialog.isShowing()) {
             mProgressDialog.show();
+        }
     }
 
     /**
@@ -72,8 +73,9 @@ public class BaseActivity extends AppCompatActivity implements BaseView {
      */
     @Override
     public void onAfterRequest() {
-        if (mProgressDialog != null && mProgressDialog.isShowing())
+        if (mProgressDialog != null && mProgressDialog.isShowing()) {
             mProgressDialog.dismiss();
+        }
     }
 
     /**
@@ -83,8 +85,9 @@ public class BaseActivity extends AppCompatActivity implements BaseView {
      */
     @Override
     public void onError(String errorMessage) {
-        if (errorMessage != null && !errorMessage.isEmpty())
+        if (errorMessage != null && !errorMessage.isEmpty()) {
             Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show();
+        }
     }
 
     /**
@@ -125,15 +128,16 @@ public class BaseActivity extends AppCompatActivity implements BaseView {
     @Subscribe
     public void onEventMainThread(final ConnectivityChangeEvent event) {
         if (event != null) {
-            switch (event.state) {
+            switch (event.getState()) {
                 case CONNECTED:
                     break;
                 case CONNECTING:
                     break;
                 case DISCONNECTED:
                     // Show Network Connection Missing Dialog
-                    if (!this.isFinishing())
+                    if (!this.isFinishing()) {
                         networkAlertDialog();
+                    }
                     break;
             }
         }
