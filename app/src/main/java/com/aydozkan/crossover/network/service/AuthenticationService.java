@@ -15,7 +15,7 @@ import retrofit2.http.POST;
 public interface AuthenticationService {
 
     /**
-     * Authenticate User Post Method
+     * Authenticate User Post Method.
      *
      * @param request AuthenticateUserRequest
      * @return AuthenticateUserResponse
@@ -25,7 +25,7 @@ public interface AuthenticationService {
     Call<AuthenticateUserResponse> authenticateUser(@Body AuthenticateUserRequest request);
 
     /**
-     * Register new User Post Method
+     * Register new User Post Method.
      *
      * @param request AuthenticateUserRequest
      * @return AuthenticateUserResponse

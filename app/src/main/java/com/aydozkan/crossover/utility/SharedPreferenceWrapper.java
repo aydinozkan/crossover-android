@@ -6,16 +6,6 @@ import android.util.Log;
 
 import com.aydozkan.crossover.CrossOverApplication;
 
-import java.io.UnsupportedEncodingException;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
-
-import javax.crypto.BadPaddingException;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
-
 /**
  * Keeps a reference to the SharedPreference
  * Acts as a Singleton class
@@ -59,14 +49,7 @@ public final class SharedPreferenceWrapper {
         if (mSharedPreferences != null) {
             try {
                 return CrossOverApplication.getInstance().getCrypt().decrypt(mSharedPreferences.getString(KEY_ACCESS_TOKEN, ""));
-            } catch (UnsupportedEncodingException
-                    | NoSuchAlgorithmException
-                    | InvalidKeySpecException
-                    | InvalidAlgorithmParameterException
-                    | NoSuchPaddingException
-                    | BadPaddingException
-                    | InvalidKeyException
-                    | IllegalBlockSizeException e) {
+            } catch (Exception e) {
                 Log.e(TAG, e.getMessage());
             }
         }

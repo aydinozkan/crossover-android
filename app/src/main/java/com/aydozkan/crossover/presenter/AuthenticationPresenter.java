@@ -12,7 +12,7 @@ import com.aydozkan.crossover.view.AuthenticationView;
 import retrofit2.Response;
 
 /**
- * Mediates AuthenticationView and Authentication Models
+ * Mediates AuthenticationView and Authentication Models.
  */
 public class AuthenticationPresenter {
 
@@ -25,8 +25,11 @@ public class AuthenticationPresenter {
     }
 
     /**
-     * Enqueues authenticateUser Service Call and mediates AuthenticationView
-     * Authenticates an existing User
+     * Enqueues authenticateUser Service Call and mediates AuthenticationView.
+     * Authenticates an existing User.
+     *
+     * @param email    emailAddress value coming from LoginActivity
+     * @param password password value coming from LoginActivity
      */
     public void authenticateUser(String email, String password) {
 
@@ -52,8 +55,11 @@ public class AuthenticationPresenter {
     }
 
     /**
-     * Enqueues registerUser Service Call and mediates AuthenticationView
-     * Registers a new User
+     * Enqueues registerUser Service Call and mediates AuthenticationView.
+     * Registers a new User.
+     *
+     * @param email    emailAddress value coming from LoginActivity
+     * @param password password value coming from LoginActivity
      */
     public void registerUser(String email, String password) {
 

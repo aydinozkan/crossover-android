@@ -6,6 +6,9 @@ import com.aydozkan.crossover.utility.SharedPreferenceWrapper;
 
 import se.simbio.encryption.Encryption;
 
+/**
+ * CrossOverApplication
+ */
 public class CrossOverApplication extends Application {
 
     private static final String KEY = "2Y5PTM925LCY6034T67320525YL291B0";

@@ -140,6 +140,14 @@ public class PaymentFragmentDialog extends DialogFragment {
      * @see com.aydozkan.crossover.gui.activity.PlacesActivity
      */
     public interface RentPaymentListener {
+        /**
+         * Rent Payment Button Clicked Callback
+         *
+         * @param cardNumber     Credit Card Number
+         * @param cardOwnerName  Credit Card Owner Name
+         * @param expirationDate Credit Card Expiration Date (MM/YYYY)
+         * @param securityCode   Credit Card Security Code
+         */
         void onRentPaymentButtonClicked(String cardNumber, String cardOwnerName, String expirationDate, String securityCode);
     }
 }

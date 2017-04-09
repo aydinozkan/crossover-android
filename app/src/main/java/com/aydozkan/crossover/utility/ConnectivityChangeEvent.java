@@ -3,7 +3,7 @@ package com.aydozkan.crossover.utility;
 import android.net.NetworkInfo;
 
 /**
- * Event used to determine Connectivity State
+ * Event used to determine Connectivity State.
  *
  * @see NetworkChangeReceiver
  */

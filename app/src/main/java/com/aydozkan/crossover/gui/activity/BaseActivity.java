@@ -59,7 +59,7 @@ public class BaseActivity extends AppCompatActivity implements BaseView {
     }
 
     /**
-     * Show Progress Dialog before Service Call
+     * Show Progress Dialog before Service Call.
      */
     @Override
     public void onBeforeRequest() {
@@ -69,7 +69,7 @@ public class BaseActivity extends AppCompatActivity implements BaseView {
     }
 
     /**
-     * Dismiss Progress Dialog after Service Call
+     * Dismiss Progress Dialog after Service Call.
      */
     @Override
     public void onAfterRequest() {
@@ -79,7 +79,7 @@ public class BaseActivity extends AppCompatActivity implements BaseView {
     }
 
     /**
-     * Show ServiceError Dialog when service error occurs
+     * Show ServiceError Dialog when service error occurs.
      *
      * @param errorMessage shown ServiceError Message on UI
      */
@@ -110,7 +110,7 @@ public class BaseActivity extends AppCompatActivity implements BaseView {
     }
 
     /**
-     * Prompts an AlertDialog if network connection misses
+     * Prompts an AlertDialog if network connection misses.
      */
     private void networkAlertDialog() {
         new AlertDialog.Builder(this)
@@ -121,7 +121,7 @@ public class BaseActivity extends AppCompatActivity implements BaseView {
     }
 
     /**
-     * Called when the network connectivity has changed during runtime
+     * Called when the network connectivity has changed during runtime.
      *
      * @param event ConnectivityChangeEvent
      */
@@ -138,6 +138,8 @@ public class BaseActivity extends AppCompatActivity implements BaseView {
                     if (!this.isFinishing()) {
                         networkAlertDialog();
                     }
+                    break;
+                default:
                     break;
             }
         }

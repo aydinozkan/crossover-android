@@ -38,17 +38,11 @@
         <!-- See http://checkstyle.sourceforge.net/config_javadoc.html -->
         <module name="JavadocMethod">
             <property name="scope" value="package" />
-            <property name="allowMissingParamTags" value="true" />
-            <property name="allowMissingThrowsTags" value="true" />
-            <property name="allowMissingReturnTag" value="true" />
-            <property name="allowThrowsTagsForSubclasses" value="true" />
-            <property name="allowUndeclaredRTE" value="true" />
             <property name="allowMissingPropertyJavadoc" value="true" />
-            <property name="severity" value="ignore" />
+            <property name="tokens" value="METHOD_DEF,ANNOTATION_FIELD_DEF" />
         </module>
         <module name="JavadocType">
             <property name="scope" value="package" />
-            <property name="severity" value="ignore" />
         </module>
         <module name="JavadocVariable">
             <property name="scope" value="package" />
@@ -144,7 +138,6 @@
                       value="-1, 0, 1, 2, 3, 4, 5, 8, 10, 12, 16, 24, 30, 32, 60, 64, 100, 120, 128, 180, 256, 360, 1000" />
         </module>
         <module name="MissingSwitchDefault">
-            <property name="severity" value="ignore" />
         </module>
         <module name="SimplifyBooleanExpression" />
         <module name="SimplifyBooleanReturn" />

@@ -51,7 +51,17 @@ public abstract class ResponseCallback<T> implements Callback<T> {
         }
     }
 
+    /**
+     * Custom Response Success Callback
+     *
+     * @param response Related response model
+     */
     public abstract void onResponse(Response<T> response);
 
+    /**
+     * Custom Response Failure Callback
+     *
+     * @param errorMessage Related error message
+     */
     public abstract void onFailure(String errorMessage);
 }

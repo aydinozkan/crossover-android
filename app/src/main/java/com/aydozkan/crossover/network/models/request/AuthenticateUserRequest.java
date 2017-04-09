@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 
 /**
- * Request Class for Authenticate User Service Call
+ * Request Class for Authenticate User Service Call.
  */
 public class AuthenticateUserRequest implements Serializable {
     @SerializedName("email")
